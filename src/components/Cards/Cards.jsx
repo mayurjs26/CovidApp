@@ -1,17 +1,19 @@
 import React from 'react';
 import {Card, CardContent,Typography, Grid} from '@material-ui/core';
 import CountUp from 'react-countup';
+import styles from './Cards.module.css'
 const Cards = (props) => {
     console.log(props)
     if (!props.data.confirmed){
         return "Loading....."
     }
     return (
-        <div>
+        <div className = {styles.cardcontainer}>
             <Grid container spacing = {3} justify = "center">
-                <Grid item component ={Card}>
-                    <CardContent>
-                        <Typography>
+                <div className = {styles.card}>
+                <Grid  item component ={Card} >
+                    <CardContent >
+                        <Typography >
                             Confirmed
                         </Typography>
                         <Typography>
@@ -21,7 +23,9 @@ const Cards = (props) => {
 
                     </CardContent>
                 </Grid>
-                <Grid item component ={Card}>
+                </div>
+                <div className = {styles.card}>
+                <Grid item component ={Card} className = {styles.card}>
                     <CardContent>
                         <Typography>
                             Recovered
@@ -32,7 +36,9 @@ const Cards = (props) => {
 
                     </CardContent>
                 </Grid>
-                <Grid item component ={Card}>
+                </div>
+                <div className = {styles.card}>
+                <Grid item component ={Card} className = {styles.card}>
                     <CardContent>
                         <Typography>
                             Death
@@ -43,7 +49,9 @@ const Cards = (props) => {
 
                     </CardContent>
                 </Grid>
-                <Grid item component ={Card}>
+                </div>
+                <div className = {styles.card}>
+                <Grid item component ={Card} className = {styles.card}>
                     <CardContent>
                         <Typography>
                             Active
@@ -54,6 +62,7 @@ const Cards = (props) => {
 
                     </CardContent>
                 </Grid>
+                </div>
             </Grid>
         </div>
     )

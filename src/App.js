@@ -25,10 +25,14 @@ class App extends React.Component{
   return (
     
     <div className="App">
-        <h1>App</h1>
-        <Cards data = {this.state.countryData}></Cards>
+      
+        
+        <Cards data = {this.state.countryData} ></Cards>
+        
+        <CovidTable data = {this.state.stateList} ></CovidTable>
+        
+        
         <Charts/>
-        <CovidTable data = {this.state.stateList}></CovidTable>
         <StatePicker></StatePicker>
     </div>
   );

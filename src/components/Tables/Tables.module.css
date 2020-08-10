@@ -1,0 +1,14 @@
+@media (max-width: 769px){
+    .container{
+        width: calc(100% - 2rem);
+    }
+}
+.container {
+    align-self: center;
+    margin-bottom: 2.5rem;
+    overflow-x: hidden;
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
