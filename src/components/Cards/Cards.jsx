@@ -68,8 +68,8 @@ const Cards = (props) => {
                         <Typography>
                             Active
                         </Typography>
+   
                         <Typography>
-                        
                         <CountUp start ={0} end={props.data.active} duration = {4} separator ="," startOnMount = {false}></CountUp>
                         </Typography>
 

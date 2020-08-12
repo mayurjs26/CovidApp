@@ -1,11 +1,12 @@
 import axios from 'axios';
-const url  = "https://api.covid19india.org/state_district_wise.json"
+const url  = "https://api.covid19india.org";
 
 export const fetchStateData = async() =>{
+
     var stateData = {confirmed:0,recovered:0,state:String,death:0,active:0};
     const dataList = []
     try{
-        const response = await axios.get(url);
+        const response = await axios.get(url + '/state_district_wise.json');
         // console.log(typeof(response))
         for (const[key,value] of Object.entries(response.data)){
             // console.log(key)
@@ -55,8 +56,15 @@ export const getCountryStats = async() =>{
 }
 
 export const getJsonData = async() =>{
-    const url = "https://api.covid19india.org/data.json";
-    const jsonData = await axios.get(url)
+    // var url = url + "data.json";
+    const jsonData = await axios.get(url +'/data.json')
     console.log(jsonData['data']);
     return jsonData['data'];
+}
+
+export const getStateChartData = async() => {
+    const stateDailyData = await axios.get(url + '/v4/timeseries.json');
+
+    // console.log(stateDailyData);
+    return stateDailyData.data;
 }
