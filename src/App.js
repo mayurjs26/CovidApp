@@ -11,7 +11,8 @@ class App extends React.Component{
     dailyData : [],
     allData : [],
     stateList : [],
-    countryData : {}
+    countryData : {},
+    states:[]
   }
 
   async componentDidMount(){
@@ -25,14 +26,18 @@ class App extends React.Component{
     stateList : fetchedDataList,
     allData : jsonData,
     cardsData : jsonData['statewise'][0],
-    dailyData : jsonData['cases_time_series']
-    
+    dailyData : jsonData['cases_time_series'],
+    // states: jsonData['statewise'].map(({state} )=> state)
+    states: jsonData['statewise'].map(({state,statecode} )=> ({state,statecode}))
     })
     // console.log(this.state.cardsData);
     console.log(this.state.dailyData)
+    console.log(this.state.states)
   }
 
-  
+  onStateChange = async (state) => {
+    console.log(state)
+  }
   render(){
   return (
     
@@ -45,7 +50,7 @@ class App extends React.Component{
         
         
         <Charts data = {this.state.dailyData}/>
-        <StatePicker></StatePicker>
+        <StatePicker data= {this.state.states} stateChange = {this.onStateChange}></StatePicker>
     </div>
   );
 }
