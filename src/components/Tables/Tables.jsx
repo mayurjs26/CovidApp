@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   });
   
 const CovidTable = (props) => {
-    console.log(props)
+    // console.log(props)
     const classes = useStyles()
     return (
       <div className = {styles.container}>

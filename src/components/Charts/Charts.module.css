@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content : center;
+    width: 85%;
+    position: relative;
+    align-self: center;
+    height: 10rem;
+}
+

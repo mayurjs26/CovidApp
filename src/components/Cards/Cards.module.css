@@ -8,3 +8,20 @@ margin-top: 5rem;
 .cardcontainer{
     margin-bottom: 4rem;
 }
+
+.confirmed{
+    color:#ff073a;
+}
+.recovered{
+    color: #28a745;
+}
+.death{
+    color:#6c757d;
+}
+.active{
+    color:blue;
+
+}
+ArrowUpwardIcon{
+    height: 0.75em;
+}

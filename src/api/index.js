@@ -8,7 +8,7 @@ export const fetchStateData = async() =>{
         const response = await axios.get(url);
         // console.log(typeof(response))
         for (const[key,value] of Object.entries(response.data)){
-            console.log(key)
+            // console.log(key)
             var confirmed = 0
             var recovered = 0
             var death = 0
@@ -28,7 +28,7 @@ export const fetchStateData = async() =>{
 
             dataList.push(stateData)
         }
-        console.log(dataList)
+        // console.log(dataList)
         return dataList
     }
     catch(error){
@@ -52,4 +52,11 @@ export const getCountryStats = async() =>{
         });
 
         return {confirmed,recovered,death,active}
+}
+
+export const getJsonData = async() =>{
+    const url = "https://api.covid19india.org/data.json";
+    const jsonData = await axios.get(url)
+    console.log(jsonData['data']);
+    return jsonData['data'];
 }
