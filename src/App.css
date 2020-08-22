@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+
+.chart_cointainer{
+  height : 200px;
+  width: 600px;
+}
 @media (max-width: 769px){
   .main{
       width: calc(100% - 2rem);

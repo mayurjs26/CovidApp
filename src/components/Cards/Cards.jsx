@@ -3,6 +3,8 @@ import {Card, CardContent,Typography, Grid} from '@material-ui/core';
 import CountUp from 'react-countup';
 import styles from './Cards.module.css'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+
 const Cards = (props) => {
     console.log(props)
     if (!props.data.confirmed){
@@ -68,7 +70,10 @@ const Cards = (props) => {
                         <Typography>
                             Active
                         </Typography>
-   
+                        <Typography  >
+                        <ArrowDownwardIcon/>
+                        <CountUp start ={0} end={parseInt(props.data.deltarecovered)+parseInt(props.data.deltadeaths)} duration = {4} separator ="," startOnMount = {false}></CountUp>
+                        </Typography>
                         <Typography>
                         <CountUp start ={0} end={props.data.active} duration = {4} separator ="," startOnMount = {false}></CountUp>
                         </Typography>

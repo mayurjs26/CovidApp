@@ -7,7 +7,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import styles from './Tables.module.css'
+import styles from './Tables.module.css';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+
+
 
 const useStyles = makeStyles({
     table: {
@@ -16,7 +19,7 @@ const useStyles = makeStyles({
   });
   
 const CovidTable = (props) => {
-    // console.log(props)
+    console.log(props.data)
     const classes = useStyles()
     return (
       <div className = {styles.container}>
@@ -37,10 +40,36 @@ const CovidTable = (props) => {
                   <TableCell component="th" scope="row">
                     {row.state}
                   </TableCell>
-                  <TableCell align="right">{row.confirmed}</TableCell>
-                  <TableCell align="right">{row.recovered}</TableCell>
-                  <TableCell align="right">{row.death}</TableCell>
-                  <TableCell align="right">{row.active}</TableCell>
+                  <TableCell align="right">
+                    {  
+                      row.deltaconfirmed !=0?(
+                      <div className ={styles.arrow_cointainer}>
+                      <ArrowUpwardIcon className = {styles.arrow} />{row.deltaconfirmed}
+                      </div>):<div></div>
+                    }
+                    
+                    {row.confirmed}</TableCell>
+                  <TableCell align="right">
+                  {  
+                      row.deltarecovered !=0?(
+                      <div className ={styles.recovered_container}>
+                      <ArrowUpwardIcon/>{row.deltarecovered}
+                      </div>):<div></div>
+                    }
+                  {row.recovered}</TableCell>
+                  <TableCell align="right">
+                  {  
+                      row.deltadeaths !=0?(
+                      <div className ={styles.death_cointainer}>
+                      <ArrowUpwardIcon />{row.deltadeaths}
+                      </div>):<div></div>
+                    }
+                    {row.deaths}</TableCell>
+                  <TableCell align="right">
+                  <div>
+
+                  </div>
+                  {row.active}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

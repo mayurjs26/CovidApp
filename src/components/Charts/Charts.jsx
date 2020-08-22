@@ -1,15 +1,9 @@
 import * as React from 'react';
 import {Line, Bar} from 'react-chartjs-2';
-import { StylesContext } from '@material-ui/styles';
 import styles from './Charts.module.css'
 const Charts = (props) => {
     const dailyData = props.data;
     console.log(dailyData)
-    // useEffect(() => {
-
-    // });
-
-
     const lineChart = (
     dailyData.length?
     (

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Cards,Charts,CovidTable,StatePicker} from './components'
 import {fetchStateData,getCountryStats, getJsonData,getStateChartData} from './api'
+import styles from './App.css'
 
 class App extends React.Component{
 
@@ -13,7 +14,8 @@ class App extends React.Component{
     allData : [],
     stateList : [],
     countryData : {},
-    states:[]
+    states:[],
+    chartData : {}
   }
 
   async componentDidMount(){
@@ -23,7 +25,7 @@ class App extends React.Component{
     const fetchedCountryData = await getCountryStats()
     this.setState({
     countryData:fetchedCountryData,
-    stateList : fetchedDataList,
+    stateList : jsonData['statewise'].slice(1),
     allData : jsonData,
     cardsData : jsonData['statewise'][0],
     dailyData : jsonData['cases_time_series'],
@@ -51,8 +53,8 @@ class App extends React.Component{
         "deaths": deathCases
       };
     })
-
-    console.log(stateChartData)
+    this.state.chartData = stateChartData;
+    // console.log(stateChartData)
   }
 
   
@@ -67,8 +69,11 @@ class App extends React.Component{
         <CovidTable data = {this.state.stateList} ></CovidTable>
         
         
-        <Charts data = {this.state.dailyData}/>
+        
         <StatePicker data= {this.state.states} stateChange = {this.onStateChange}></StatePicker>
+        <div className = {styles.chart_cointainer}>
+        <Charts data = {this.state.dailyData} stateData = {this.state.stateChartData}/>
+        </div>
     </div>
     </div>
   );

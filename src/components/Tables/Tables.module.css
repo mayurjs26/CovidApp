@@ -12,3 +12,17 @@
     margin-right: auto;
   }
 
+.arrow_cointainer{
+    color: #ff073a
+}
+
+.arrow{
+    height: 18;
+    color: #ff073a;
+}
+.recovered_container{
+    color:#28a745;
+}
+.death_cointainer{
+    color: #6c757d;
+}
